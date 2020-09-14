@@ -48800,3 +48800,15 @@
 [0mPOST /api/user/register [32m200 [0m131.724 ms - 37[0m
 [0mPOST /api/user/register [32m200 [0m74.861 ms - 37[0m
 [0mPOST /api/user/register [32m200 [0m278.800 ms - 37[0m
+[0mPOST /api/register [33m404 [0m20.119 ms - 2937[0m
+[0mPOST /api/register [33m404 [0m5.696 ms - 28[0m
+[0mPOST /api/user/register [0m- [0m- ms - -[0m
+[0mPOST /api/user/register [33m409 [0m258.478 ms - 38[0m
+[0mPOST /api/user/register [32m200 [0m273.724 ms - 102[0m
+[0mPOST /api/user/register [32m200 [0m280.037 ms - 102[0m
+[0mPOST /api/user/login [31m500 [0m21.795 ms - 34[0m
+[0mPOST /api/user/login [31m500 [0m27.265 ms - 34[0m
+[0mPOST /api/user/login [32m200 [0m277.055 ms - 224[0m
+[0mPOST /api/user/login [33m401 [0m240.574 ms - 34[0m
+[0mPOST /api/category/create [32m200 [0m167.960 ms - 55[0m
+[0mGET /api/category/main/list [32m200 [0m20.708 ms - 167[0m

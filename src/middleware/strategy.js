@@ -44,6 +44,23 @@ export var jwtLogoutStrategy = (req, res, next) => {
     })(req, res, next);
 };
 
+
+export var rootLoginStrategy = (req, res, next) => {
+    passport.authenticate('root-login', {
+        session: false
+    }, (err, user, info) => {
+        if (err && err.startsWith("resetpassword")) { var email = err.split("/"); return res.status(200).json({ isnewuser: 1, email: email[1] }); }
+        if (err && err == 'invalid') { return res.status(401).json({ errors: ['Email Id not verified'] }); }
+        if (err && err == 'attempt') { return res.status(401).json({ errors: ['Too many invalid attempts. Please reset your password.'] }); }
+        if (err) { return res.status(401).json({ errors: [err] }); }
+        if (!user) { return res.status(401).json({ errors: ['Invalid Credentials'] }); }
+        if (err && err.keyword.startsWith('attempt:')) { return res.status(401).json({ errors: ['Invalid Credentials (' + err.split(':')[1] + ' Attempt(s) Left)'] }); }
+        user.type = "root";
+        req.user = user;
+        next();
+    })(req, res, next);
+};
+
 export var localStrategy = (req, res, next) => {
     passport.authenticate('local', { session: false }, (err, user, info) => {
         console.log(err);

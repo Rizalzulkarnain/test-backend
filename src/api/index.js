@@ -1,5 +1,8 @@
 import express from 'express';
-import { clientRouter } from './resources/client'
+import { authRouter } from './resources/auth'
+import { categoryRouter } from './resources/category'
+
  
 export const restRouter = express.Router();
-restRouter.use('/user', clientRouter);
+restRouter.use('/user', authRouter);
+restRouter.use('/category', categoryRouter);
